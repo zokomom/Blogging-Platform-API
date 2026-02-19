@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class Post_in(BaseModel):
+class PostIn(BaseModel):
     title:str
     content:str
     category:str
@@ -9,7 +9,10 @@ class Post_in(BaseModel):
         "from_attributes":True
     }
 
-class Post_out(BaseModel):
+class PostUpdate(PostIn):
+    pass
+
+class PostOut(BaseModel):
     id:int=1
     title:str
     content:str
