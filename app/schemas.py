@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from datetime import datetime
 class PostIn(BaseModel):
     title:str
     content:str
@@ -13,10 +13,13 @@ class PostUpdate(PostIn):
     pass
 
 class PostOut(BaseModel):
-    id:int=1
+    id:int
     title:str
     content:str
     category:str
     tags:list[str]
-    created_at:str="Today"
-    updated_at:str="Today"
+    createdAt:datetime
+    updatedAt:datetime
+    model_config={
+        "from_attributes":True
+    }
